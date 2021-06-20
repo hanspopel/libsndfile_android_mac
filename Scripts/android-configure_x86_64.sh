@@ -26,14 +26,7 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-# Android NDK version number; eg r10, r10b  etc
-ANDROID_NDK_VER=${ANDROID_NDK_VER:-17.2.4988734}
 
-# Android NDK gcc version; eg 4.8, 4.9 etc.
-ANDROID_GCC_VER=${ANDROID_GCC_VER:-4.9}
-
-# Android API version; eg 14 (Android 4.0), 21 (Android 5.0)  etc.
-ANDROID_API_VER=${ANDROID_API_VER:-28}
 
 # ANDROID_TARGET=${ANDROID_TARGET:-arm-linux-androideabi}
 ANDROID_TARGET=${ANDROID_TARGET:-x86_64}
@@ -41,7 +34,6 @@ ANDROID_TARGET=${ANDROID_TARGET:-x86_64}
 ANDROID_ARCH="arch-x86_64"
 
 # aarch64-linux-android
-ANDROID_TOOLCHAIN_HOME=/Users/pascalkaap/Library/Android/sdk/ndk
 
 if test -z ${ANDROID_TOOLCHAIN_HOME} ; then
 	echo "Environment variable ANDROID_TOOLCHAIN_HOME not defined."

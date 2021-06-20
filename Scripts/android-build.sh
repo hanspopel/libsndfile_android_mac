@@ -26,6 +26,19 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+export USER_ANDROID_NDK_PATH="$HOME/Library/Android/sdk/ndk/"
+export USER_ANDROID_NDK_VERSION="17.2.4988734"
+export ANDROID_TOOLCHAIN_HOME=${USER_ANDROID_NDK_PATH}
+
+# Android NDK version number; eg r10, r10b  etc
+export ANDROID_NDK_VER=${ANDROID_NDK_VER:-17.2.4988734}
+
+# Android NDK gcc version; eg 4.8, 4.9 etc.
+export ANDROID_GCC_VER=${ANDROID_GCC_VER:-4.9}
+
+# Android API version; eg 14 (Android 4.0), 21 (Android 5.0)  etc.
+export ANDROID_API_VER=${ANDROID_API_VER:-28}
+
 make clean
 rm -R out
 mkdir out
@@ -33,14 +46,14 @@ mkdir out
 ./Scripts/android-configure_arm64.sh
 make
 mkdir out/arm64
-cp src/.libs/libsndfile.a  out/arm64/libnsdfile.a
+cp src/.libs/libsndfile.a  out/arm64/libnsdfile_arm64.a
 
 make clean
 ./autogen.sh
 ./Scripts/android-configure_armv7.sh
 make
 mkdir out/armv7
-cp src/.libs/libsndfile.a  out/armv7/libnsdfile.a
+cp src/.libs/libsndfile.a  out/armv7/libnsdfile_armv7.a
 
 
 make clean
@@ -48,7 +61,7 @@ make clean
 ./Scripts/android-configure_x86.sh
 make
 mkdir out/x86
-cp src/.libs/libsndfile.a  out/x86/libnsdfile.a
+cp src/.libs/libsndfile.a  out/x86/libnsdfile_x86.a
 make
 
 make clean
@@ -56,5 +69,5 @@ make clean
 ./Scripts/android-configure_x86_64.sh
 make
 mkdir out/x86_64
-cp src/.libs/libsndfile.a  out/x86_64/libnsdfile.a
+cp src/.libs/libsndfile.a  out/x86_64/libnsdfile_x86_64.a
 make
